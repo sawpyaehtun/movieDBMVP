@@ -50,6 +50,8 @@ class ProfileViewController: BaseViewController {
         profilePresenterImpl.onUIReady()
     }
     
+    
+    
     private func setupCollectionViewWatchList(){
         collectionViewWatchList.delegate = self
         collectionViewWatchList.dataSource = self
@@ -77,7 +79,9 @@ class ProfileViewController: BaseViewController {
     private func displayProfile(){
         if let accountDetail = UserManager.shared.accountDetail {
             lblUsername.text = accountDetail.username
+             profilePresenterImpl.onUIReady()
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
