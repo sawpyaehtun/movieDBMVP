@@ -51,7 +51,7 @@ protocol MovieModel {
         
         func getMovieROById(movieID : Int) -> MovieRO?
         
-        func getMovieVOById(movieID : Int) -> MovieVO
+        func getMovieVOById(movieID : Int) -> MovieVO?
         
         func getMovieVOsByKey(key : String, property : String) -> [MovieVO]
 }

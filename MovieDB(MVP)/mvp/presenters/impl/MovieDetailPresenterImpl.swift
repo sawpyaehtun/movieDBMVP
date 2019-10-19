@@ -170,7 +170,8 @@ extension MovieDetailPresenterImpl {
         mView?.startLoading()
         if NetworkClient.checkReachable() == false {
             mView?.finishLoading()
-            mView?.showMovieDetail(movie: MovieModelimpl.shared.getMovieVOById(movieID: movieId))
+            guard let movie = MovieModelimpl.shared.getMovieVOById(movieID: movieId) else {return}
+            mView?.showMovieDetail(movie: movie)
         } else {
             MovieModelimpl.shared.getMovieDetail(movieId: movieId, success: { (movie) in
                 self.mView?.finishLoading()

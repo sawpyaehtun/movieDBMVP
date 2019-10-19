@@ -219,13 +219,13 @@ extension UserModelImpl {
     }
     
     func addRemoveMovieInWatchList(willAdd : Bool,movieID : Int) {
-        var movieVO = MovieModelimpl.shared.getMovieVOById(movieID: movieID)
+        guard var movieVO = MovieModelimpl.shared.getMovieVOById(movieID: movieID) else {return}
         movieVO.isAddedWatchList = willAdd
         DBManager.sharedInstance.addData(object: movieVO.toMovieRO())
     }
     
     func addRemoveMovieInRatedList(willAdd : Bool, movieID : Int){
-        var movieVO = MovieModelimpl.shared.getMovieVOById(movieID: movieID)
+        guard var movieVO = MovieModelimpl.shared.getMovieVOById(movieID: movieID) else {return}
         movieVO.isRated = willAdd
         DBManager.sharedInstance.addData(object: movieVO.toMovieRO())
     }
